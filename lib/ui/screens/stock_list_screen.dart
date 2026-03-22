@@ -27,11 +27,7 @@ Future.delayed(Duration.zero, () {
 
   @override
   Widget build(BuildContext context) {
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    final Color oddItemColor = colorScheme.secondary.withValues(alpha: 0.05);
-    final Color evenItemColor = colorScheme.secondary.withValues(alpha: 0.15);
-    final Color draggableItemColor = Colors.blue[100] ?? Colors.blue;
-
+      
     Widget proxyDecorator(
       Widget child,
       int index,
@@ -42,22 +38,17 @@ Future.delayed(Duration.zero, () {
         builder: (BuildContext context, Widget? child) {
           final double animValue = Curves.easeInOut.transform(animation.value);
           final double elevation = lerpDouble(0, 6, animValue)!;
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Material(
+          return  Material(
               elevation: elevation,
-              color: draggableItemColor,
-              shadowColor: draggableItemColor,
               child: child,
-            ),
-          );
+            );
         },
         child: child,
       );
     }
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Stocks')),
+      appBar: AppBar(title: const Text('Watchlist'),centerTitle: true,),
       body: BlocBuilder<StocksBloc, StocksState>(
         builder: (context, state) {
           if (state is StocksFetched) {
@@ -78,13 +69,7 @@ Future.delayed(Duration.zero, () {
               itemBuilder: (context, index) {
                 final stock = state.stocks[index];
 
-                return Column(
-                  key: ValueKey(stock.id),
-                  children: [
-                    StockListTile(name: stock.name, price: stock.price.toStringAsFixed(2), change: stock.change),
-                    Divider(height: 1),
-                  ],
-                );
+                return StockListTile(name: stock.name, price: stock.price.toStringAsFixed(2), change: stock.change,key: ValueKey(stock.id),);
               },
             );
           } else if (state is StocksLoading) {

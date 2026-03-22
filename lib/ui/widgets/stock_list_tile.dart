@@ -10,25 +10,37 @@ class StockListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  ListTile(
-      title: Text(name),
-      subtitle: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-            Text("Price: $price"),
-          Text(
-            "Change: ${change.toStringAsFixed(2)}",
-            style: TextStyle(
-              color: change > 0
-                  ? Colors.green
-                  : Colors.red,
-            ),
-          ),
-        ],
+    final width = MediaQuery.of(context).size.width;
+
+    return  Card(
+       elevation: 2,
+      margin: EdgeInsets.symmetric(
+        horizontal: width * 0.04,
+        vertical: 6,
       ),
-      trailing: BlocBuilder<ReorderStatusCubit,ReorderStatusState>(builder: (context,state){
-        return state is StartReoredering ? Icon(Icons.unfold_more):SizedBox.shrink();
-      }),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: ListTile(
+        title: Text(name),
+        subtitle: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+              Text("Price: $price"),
+            Text(
+              "Change: ${change.toStringAsFixed(2)}",
+              style: TextStyle(
+                color: change > 0
+                    ? Colors.green
+                    : Colors.red,
+              ),
+            ),
+          ],
+        ),
+        trailing: BlocBuilder<ReorderStatusCubit,ReorderStatusState>(builder: (context,state){
+          return state is StartReoredering ? Icon(Icons.unfold_more):SizedBox.shrink();
+        }),
+      ),
     );
   }
 }
