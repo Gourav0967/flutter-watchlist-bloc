@@ -29,7 +29,7 @@ Reordering is handled inside the BLoC by creating a new list, removing the item 
 ## Project Structure
 
 I followed a feature-based structure:
-
+```text
 lib/
  └── features/
       └── watchlist/
@@ -43,17 +43,23 @@ lib/
 ---
 ## Screenshots
 
+## Screenshots
+
 ### Watchlist Screen
-![Watchlist](assets/screenshots/home.jpg)
+<p align="center">
+  <img src="assets/screenshots/home.jpg" width="300"/>
+</p>
 
 ### Drag & Reorder
-![Drag1](assets/screenshots/drag1.jpg)
-![Drag](assets/screenshots/drag2.jpg)
-
+<p align="center">
+  <img src="assets/screenshots/drag1.jpg" width="250"/>
+  <img src="assets/screenshots/drag2.jpg" width="250"/>
+</p>
 
 ### Swipe to Delete
-![Delete](assets/screenshots/delete.png)
-
+<p align="center">
+  <img src="assets/screenshots/delete.png" width="300"/>
+</p>
 ## How to run
 
 ```bash
