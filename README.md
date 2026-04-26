@@ -39,7 +39,7 @@ lib/
                 ├── cubit/
                 ├── screens/
                 ├── widgets/
-
+```
 ---
 ## Screenshots
 
