@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:reorder_list_assignment/models/stocks_model.dart';
+import 'package:reorder_list_assignment/features/stock_list/data/models/stocks_model.dart';
 
 class StockRepo {
   List<StocksModel> _stocks = [
@@ -19,7 +19,7 @@ class StockRepo {
       _stocks = _stocks.map((stock) {
         final change =
             double.parse(_random.nextDouble().toStringAsFixed(2)) *
-            0.1 *
+            0.001 *
             (_random.nextBool() ? 1 : -1);
 
         final newPrice = stock.price + (stock.price * change);
@@ -32,11 +32,14 @@ class StockRepo {
       await Future.delayed(Duration(seconds: 1));
     }
   }
-  void reorderStocks(int oldIndex, int newIndex) {
+   void reorderStocks(int oldIndex, int newIndex) {
     if (oldIndex < newIndex) {
       newIndex -= 1;
     }
     final item = _stocks.removeAt(oldIndex);
     _stocks.insert(newIndex, item);
+  }
+  void deleteStock(int index){
+    _stocks.removeAt(index);
   }
 }

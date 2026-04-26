@@ -1,4 +1,4 @@
-part of 'stocks_bloc.dart';
+part of 'stocks_list_bloc.dart';
 
 sealed class StocksEvent extends Equatable {
   const StocksEvent();
@@ -14,4 +14,14 @@ class ReorderStocks extends StocksEvent {
   final int newIndex;
 
   const ReorderStocks(this.oldIndex, this.newIndex);
+ @override
+  List<Object> get props => [oldIndex,newIndex];
+}
+
+class DeleteStock extends StocksEvent {
+  final int index;
+  const DeleteStock(this.index);
+  
+  @override
+  List<Object> get props => [index];
 }

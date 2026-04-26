@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:reorder_list_assignment/business_logic/bloc/stocks_bloc.dart';
-import 'package:reorder_list_assignment/business_logic/cubit/reorder_status_cubit.dart';
-import 'package:reorder_list_assignment/repositories/stock_repo.dart';
-import 'package:reorder_list_assignment/ui/screens/stock_list_screen.dart';
+import 'package:reorder_list_assignment/features/stock_list/presentation/bloc/stocks_list_bloc.dart';
+import 'package:reorder_list_assignment/features/stock_list/presentation/cubit/reorder_status_cubit.dart';
+import 'package:reorder_list_assignment/features/stock_list/data/repositories/stock_repo.dart';
+import 'package:reorder_list_assignment/features/stock_list/presentation/screens/stock_list_screen.dart';
 
 void main() {
   runApp(const MainApp());

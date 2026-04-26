@@ -24,6 +24,5 @@ class StocksModel extends Equatable {
     change: change ?? this.change
    );
   @override
-  // TODO: implement props
   List<Object?> get props => [change,name,price,id];
 }
